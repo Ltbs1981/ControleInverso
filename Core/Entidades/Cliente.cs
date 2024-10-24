@@ -14,3 +14,4 @@
         public string Email { get; set; }
     }
 }
+//onde será que está a implementação do método adicionar cliente?

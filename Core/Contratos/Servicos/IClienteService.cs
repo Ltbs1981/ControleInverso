@@ -1,7 +1,7 @@
 ﻿using ControleInverso.Core.Entidades;
 namespace ControleInverso.Core.Contratos.Servicos
 {
-    internal class EClienteService
+    internal interface IClienteService
     {
         void AdicionaCliente(Cliente cliente);
 
