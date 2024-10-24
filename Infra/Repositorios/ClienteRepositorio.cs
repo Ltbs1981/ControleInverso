@@ -8,6 +8,7 @@ namespace ControleInverso.Infra.Repositorios
     {
         public void AdicionaCliente(Cliente cliente)
         {
+
             //context.Set<Cliente>().Add(cliente);
             //context.SaveChanges();
         }

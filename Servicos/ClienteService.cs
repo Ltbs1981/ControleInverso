@@ -16,7 +16,7 @@ namespace ControleInverso.Servicos
 
         public Cliente GetCliente()
         {
-            return new Cliente();
+            return new Cliente("Luciano", "28/03/1981", "lucianotadeubs@yahoo.com.br");
         }
 
         public void AdicionaCliente(Cliente cliente)

@@ -2,16 +2,18 @@
 {
     internal class Cliente
     {
-        public Cliente(string nome, DateTime nascimento, string email)
+        
+        public string Nome { get; set; }
+        public string Nascimento { get; set; }
+        public string Email { get; set; }
+
+        public Cliente(string nome, string nascimento, string email)
         {
             Nome = nome;
             Nascimento = nascimento;
             Email = email;
         }
 
-        public string Nome { get; set; }
-        public DateTime Nascimento { get; set; }
-        public string Email { get; set; }
     }
 }
-//onde será que está a implementação do método adicionar cliente?
+
