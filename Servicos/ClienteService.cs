@@ -21,12 +21,8 @@ namespace ControleInverso.Servicos
 
         public void AdicionaCliente(Cliente cliente)
         {
-            if (cliente == null)
-            {
-                Console.WriteLine("Cliente invalido");
-            }
-
-            _clienteRepositorio.AdicionaCliente(cliente);
+            Console.WriteLine($"{cliente.Nome}, {cliente.Email}");
+        _clienteRepositorio.AdicionaCliente(cliente);
             //salva no banco 
             //Envia Email
         }

@@ -12,7 +12,7 @@ namespace ControleInverso.Web.Controllers
         public void AdicionaCliente(string nome, string nascimento, string email)
         {
             Cliente cliente = new Cliente(nome, nascimento, email);
-            _clienteService = new ClienteService(new ClienteRepositorio());
+            //_clienteService = new ClienteService(new ClienteRepositorio());
             _clienteService.AdicionaCliente(cliente);
         }
     }
