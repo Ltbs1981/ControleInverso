@@ -8,7 +8,13 @@ namespace ControleInverso.Web.Controllers
 {
     internal class ClienteController
     {
-        private IClienteService _clienteService;
+        private readonly IClienteService _clienteService;
+
+        public ClienteController(IClienteService clienteService)
+        {
+            _clienteService = clienteService;
+        }
+
         public void AdicionaCliente(string nome, string nascimento, string email)
         {
             Cliente cliente = new Cliente(nome, nascimento, email);
