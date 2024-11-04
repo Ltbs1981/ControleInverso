@@ -5,19 +5,20 @@ using ControleInverso.Core.Contratos.Servicos;
 using ControleInverso.Core.Entidades;
 using ControleInverso.Infra.Repositorios;
 using ControleInverso.Servicos;
+using ControleInverso.Web.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ControleInverso
 {
     internal class Startup
     {
-        public void InjetandoDependencias()
+        public void InjetandoDependencias(IServiceCollection services)
         {
-            ServiceCollection service = new ServiceCollection();
-            service.AddScoped<IClienteRepositorio, ClienteRepositorio>();
-            service.AddScoped<IClienteService, ClienteService>();
-            service.AddScoped<IEmailService, EmailService>();
-
+            //ServiceCollection service = new ServiceCollection();
+            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            services.AddScoped<IClienteService, ClienteService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<ClienteController>();
         }
     }
 }

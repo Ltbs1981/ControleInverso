@@ -1,22 +1,34 @@
-﻿using ControleInverso.Core.Contratos.Repositorios;
-using ControleInverso.Core.Contratos.Servicos;
-using ControleInverso.Core.Entidades;
-using ControleInverso.Infra.Repositorios;
-using ControleInverso.Servicos;
+﻿using ControleInverso;
 using ControleInverso.Web.Controllers;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 
-string nome = "Luciano Silva";
-string nascimento = "28/03/1981";
-string email = "luciano.silva@email.com";
+namespace ControleInverso
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Configuração de dependências
+            var serviceCollection = new ServiceCollection();
+            var startup = new Startup();
+            startup.InjetandoDependencias(serviceCollection);
 
-Cliente novoCliente = new Cliente(nome, nascimento, email);
+            // Construindo o ServiceProvider
+            var serviceProvider = serviceCollection.BuildServiceProvider();
 
-IClienteRepositorio clienteRepositorio = new ClienteRepositorio();
-IClienteService clienteService = new ClienteService(clienteRepositorio);
+            // Obtendo uma instância de ClienteController
+            var clienteController = serviceProvider.GetRequiredService<ClienteController>();
 
-// Adiciona o cliente
-clienteService.AdicionaCliente(novoCliente);
+            // Dados do novo cliente
+            string nome = "Luciano Tadeu";
+            string nascimento = "20/03/1981";
+            string email = "lucianotadeubs@yahoo.com.br";
 
+            // Adicionando cliente
+            clienteController.AdicionaCliente(nome, nascimento, email);
 
-Console.WriteLine("Cliente adicionado com sucesso!");
-
+            Console.WriteLine("Cliente adicionado com sucesso!");
+        }
+    }
+}
